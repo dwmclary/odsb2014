@@ -5,7 +5,7 @@ sudo -E yum remove numpy
 #install the necessary libraries
 sudo -E yum install blas blas-devel lapack lapack-devel
 #pip install all our basic python modules
-sudo -E pip install numpy scipy pandas vincent cx-Oracle SQLAlchemy
+sudo -E pip install numpy scipy pandas vincent cx-Oracle SQLAlchemy pandasql
 #upgrade spark to a reasonable version
 sudo -E yum install spark-core spark-master spark-worker spark-history-server spark-python
 #python 2.6 requires ipython 1.x, so we need to git clone
