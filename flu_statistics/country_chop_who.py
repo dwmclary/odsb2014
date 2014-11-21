@@ -10,10 +10,10 @@ import string
 def write_to_db(db, dataset):
   dt = "DROP TABLE %s" % dataset['title']
   cursor = db.cursor()
-  try:
-    cursor.execute(dt)
-  except:
-    pass
+  #try:
+  #  cursor.execute(dt)
+  #except:
+  #  pass
   ctine = """CREATE TABLE %s (
 	  region VARCHAR(12),
 	  country VARCHAR(500),
