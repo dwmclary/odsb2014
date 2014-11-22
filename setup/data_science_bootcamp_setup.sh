@@ -14,7 +14,7 @@ cd ipython
 git checkout 1.x
 git pull origin 1.x
 sudo -E python setup.py install
-sudo -E pip install pyzmq jinja2 tornado
+sudo -E pip install pyzmq jinja2 tornado ipython-sql
 #install rvm and rubies
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable

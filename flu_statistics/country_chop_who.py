@@ -55,8 +55,11 @@ def make_tablename(d):
 
 def makerows(region_code, data):
   dateprefix = data[0]
+  print dateprefix
   dates = map(lambda x: x.split(), dateprefix.strip().split("|")[1:])
+  print dates
   dates = map(lambda x: [x[0], x[-1]], dates)
+  print dates
   data = map(lambda x: x.strip().split("|"), data[1:])
   # what we're really doing here is pivoting the data so that we can have country, year, week, value
   # for each row of raw data, we want a list of tuple (country, year, week, value)
