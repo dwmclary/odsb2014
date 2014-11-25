@@ -15,13 +15,7 @@ def jsonify_data(d):
 
 
 def write_to_db(db, data):
-
   cursor = db.cursor()
-  #try:
-  #  cursor.execute(dt)
-  #except:
-  #  pass
-
   try:
       cursor.prepare("INSERT INTO flu_shot_json(doc) VALUES (:1)")
       cursor.executemany(None, map(jsonify_data, data['results']))
@@ -35,7 +29,6 @@ def main():
   print "parsing dataset..."
   url = "http://flu-vaccination-map.hhs.gov/api/v1/states.json"
   data = json.load(urllib2.urlopen(url))
-
   print "writing to DB..."
   write_to_db(db, data)
 
