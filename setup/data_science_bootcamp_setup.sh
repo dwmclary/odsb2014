@@ -18,6 +18,9 @@ sudo -E pip install pyzmq jinja2 tornado ipython-sql
 ipython profile create pyspark
 cp ipython_notebook_config_spark.py ~/.config/ipython/profile_pyspark/ipython_notebook_config.py
 cp 00-pyspark-setup.py ~/.config/ipython/profile_pyspark/startup/00-pyspark-setup.py
+#install sbt
+wget -O sbt-0.13.7.rpm https://dl.bintray.com/sbt/rpm/sbt-0.13.7.rpm
+sudo -E yum localinstall sbt-0.13.7.rpm
 #install rvm and rubies
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable
