@@ -61,17 +61,22 @@ object NewsClustering {
     var wssse = clusters.computeCost(title_vectors)
     println("WSSSE for clusters:"+wssse)
 
-    val article_membership = title_pairs.mapValues(x => clusters.predict(x))
+    val article_membership = title_pairs.map(x => (clusters.predict(x._2), x._1))
     val cluster_centers = sc.parallelize(clusters.clusterCenters.zipWithIndex.map{ e => (e._2,e._1)})
     val cluster_topics = cluster_centers.mapValues(x => model.findSynonyms(x,5).map(x => x._1))
 
-    var sample_topic = cluster_topics.take(10)(6)
-    println(sample_topic._2.mkString(","))
+    var sample_topic = cluster_topics.take(12)
+    var sample_members = article_membership.filter(x => x._1 == 6).take(10)
+    for (i <- 6 until 12) {
+	println("Topic Group #"+i)
+	println(sample_topic(i)._2.mkString(","))
+	println("-----------------------------")
+	sample_members = article_membership.filter(x => x._1 == i).take(10)
+	sample_members.foreach{x => println(x._2.mkString(" "))}
+	println("-----------------------------")
+    }
 
-    var sample_members = article_membership.filter(x => x._2 == 6).take(100)
-    sample_members.foreach{x => println(x._1.mkString(","))}
-
-    article_membership.map{x => x._1.mkString(" ")+","+x._2.toString}.saveAsTextFile("/user/oracle/flu_news_categorization")
+    article_membership.map{x => x._1.toString+","+x._2.mkString(" ")}.saveAsTextFile("/user/oracle/flu_news_categorization")
     cluster_topics.map{x => x._1+","+x._2.mkString(" ")}.saveAsTextFile("/user/oracle/flu_news_categories")
 
   }
