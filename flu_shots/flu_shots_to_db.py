@@ -27,7 +27,7 @@ def write_to_db(db, data):
 def main():
   db = cx_Oracle.connect('fludb', 'flushot', 'localhost:1521/orcl')
   print "parsing dataset..."
-  url = "http://flu-vaccination-map.hhs.gov/api/v1/states.json"
+  url = "http://flu-vaccination-map.hhs.gov/api/v1/states.json?year=lte:2014"
   data = json.load(urllib2.urlopen(url))
   print "writing to DB..."
   write_to_db(db, data)
