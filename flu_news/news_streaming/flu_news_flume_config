@@ -1,0 +1,26 @@
+# example.conf: A single-node Flume configuration
+
+# Name the components on this agent
+newsAgent.sources = r1
+newsAgent.sinks = k1
+newsAgent.channels = c1
+
+# Describe/configure the source
+newsAgent.sources.r1.type = exec
+newsAgent.sources.r1.command = ./news_rss_collector.py
+
+# Describe the sink
+#newsAgent.sinks.k1.type = logger
+newsAgent.sinks.k1.type = avro
+newsAgent.sinks.k1.channel = c1
+newsAgent.sinks.k1.hostname = localhost
+newsAgent.sinks.k1.port = 44444
+
+# Use a channel which buffers events in memory
+newsAgent.channels.c1.type = memory
+newsAgent.channels.c1.capacity = 1000
+newsAgent.channels.c1.transactionCapacity = 100
+
+# Bind the source and sink to the channel
+newsAgent.sources.r1.channels = c1
+newsAgent.sinks.k1.channel = c1
