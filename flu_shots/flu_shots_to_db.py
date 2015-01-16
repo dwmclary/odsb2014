@@ -26,11 +26,21 @@ def write_to_db(db, data):
     
 def main():
   db = cx_Oracle.connect('fludb', 'flushot', 'localhost:1521/orcl')
+  drop_table = 'drop table flu_shot_json'
+  ddl = 'create table flu_shot_json (doc varchar2(4000), CONSTRAINT "ENSURE_JSON" CHECK (doc IS JSON))'
+  cursor = db.cursor()
+  try:
+    cursor.execute(drop_table)
+  except:
+    pass
+  cursor.execute(ddl)
+  cursor.close()
   print "parsing dataset..."
-  url = "http://flu-vaccination-map.hhs.gov/api/v1/states.json?year=lte:2014"
-  data = json.load(urllib2.urlopen(url))
-  print "writing to DB..."
-  write_to_db(db, data)
+  for e in ["T","W","A","B","H"]:
+    url = "http://flu-vaccination-map.hhs.gov/api/v1/states.json?ethnicity="+e+"&year=lte:2014"
+    data = json.load(urllib2.urlopen(url))
+    print "writing to DB..."
+    write_to_db(db, data)
 
 
 if __name__ == "__main__":
