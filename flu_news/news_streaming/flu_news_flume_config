@@ -10,7 +10,6 @@ newsAgent.sources.r1.type = exec
 newsAgent.sources.r1.command = ./news_rss_collector.py
 
 # Describe the sink
-#newsAgent.sinks.k1.type = logger
 newsAgent.sinks.k1.type = avro
 newsAgent.sinks.k1.channel = c1
 newsAgent.sinks.k1.hostname = localhost
