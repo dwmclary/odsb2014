@@ -12,6 +12,4 @@ Getting Started
 * Clone this git repository: `git clone https://github.com/dwmclary/odsb2014`
 * Change into the setup directory: `cd odsb2014`
 * Run the setup script: `./data_science_bootcamp_setup.sh`
-* Run the fludb.sql script as sysdba
-* In each of the flu directories, run the get data script
 * Change to the notebook directory and start ipython: `ipython notebook --profile pyspark`
