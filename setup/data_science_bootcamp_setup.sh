@@ -4,7 +4,9 @@
 sudo -E yum remove numpy
 #install the necessary libraries
 sudo -E yum install blas blas-devel lapack lapack-devel
+#fix pip and easy_install
 sudo -E easy_install pip
+sudo -E easy_install -U distribute
 #pip install all our basic python modules
 sudo -E pip install numpy scipy pandas vincent cx-Oracle SQLAlchemy pandasql seaborn beautifulsoup4 requests feedparser statsmodels scikit-learn
 #upgrade spark to a reasonable version
@@ -16,6 +18,7 @@ git checkout 1.x
 git pull origin 1.x
 sudo -E python setup.py install
 sudo -E pip install pyzmq jinja2 tornado ipython-sql
+#set up the pyspark profile
 ipython profile create pyspark
 cp ipython_notebook_config_spark.py ~/.config/ipython/profile_pyspark/ipython_notebook_config.py
 cp 00-pyspark-setup.py ~/.config/ipython/profile_pyspark/startup/00-pyspark-setup.py
@@ -28,3 +31,12 @@ gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 source /home/oracle/.rvm/scripts/rvm
 rvm install jruby
 echo "export SPARK_HOME=/usr/lib/spark" >> ~/.bashrc
+#run the database setup script
+sqlplus sys/welcome1 as sysdba @fludb.sql
+#run the get-data scripts
+cd ../flu_statistics
+./get_flu_summary_data.sh
+cd ../flu_news
+./get_news_data.sh
+cd ../setup
+#finished
