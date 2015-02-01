@@ -50,6 +50,10 @@ echo "installing SBT"
 #install sbt
 wget -O sbt-0.13.7.rpm https://dl.bintray.com/sbt/rpm/sbt-0.13.7.rpm
 sudo -E yum localinstall sbt-0.13.7.rpm
+#run the get-data scripts
+./download_data.sh
+#run the database setup script
+cat fludb.sql | sqlplus sys/welcome1 as sysdba
 #install rvm and rubies
 echo "installing RVM and Ruby"
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
@@ -58,8 +62,4 @@ source /home/oracle/.rvm/scripts/rvm
 rvm install jruby
 echo "setting environment and loading data"
 echo "export SPARK_HOME=/usr/lib/spark" >> ~/.bashrc
-#run the get-data scripts
-./download_data.sh
-#run the database setup script
-sqlplus sys/welcome1 as sysdba @./fludb.sql
 #finished
