@@ -1,3 +1,5 @@
+prompt >> Starting up
+startup
 prompt >> Dropping fludb user
 drop user fludb cascade;
 prompt >> Creating fludb...
