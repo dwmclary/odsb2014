@@ -12,8 +12,8 @@ sudo yum install impala-shell
 sudo -E easy_install pip
 sudo -E easy_install -U distribute
 #pip install all our basic python modules
-sudo -E pip install numpy 
-sudo -E pip install scipy 
+sudo -E easy_install numpy 
+sudo -E easy_install scipy 
 sudo -E pip install pandas
 sudo -E pip install cx_Oracle 
 sudo -E pip install SQLAlchemy 
