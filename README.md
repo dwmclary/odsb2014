@@ -15,4 +15,5 @@ Getting Started
 * Run the setup script: `./data_science_bootcamp_setup.sh`
 * Run the data download script `./download_data.sh`
 * Run the pyspark installation script `./setup_pyspark_notebook.sh`
-* Change to the notebook directory and start ipython: `ipython notebook --profile pyspark`
+* Source ~/.bashrc or open a new terminal window
+* Change to the `odsb2014/notebooks` directory and start ipython: `ipython notebook --profile pyspark`
