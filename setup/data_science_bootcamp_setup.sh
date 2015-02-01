@@ -59,11 +59,7 @@ rvm install jruby
 echo "setting environment and loading data"
 echo "export SPARK_HOME=/usr/lib/spark" >> ~/.bashrc
 #run the get-data scripts
-cd ../flu_statistics
-./get_flu_summary_data.sh
-cd ../flu_news
-./get_news_data.sh
-cd ../setup
+./download_data.sh
 #run the database setup script
 sqlplus sys/welcome1 as sysdba @./fludb.sql
 #finished
