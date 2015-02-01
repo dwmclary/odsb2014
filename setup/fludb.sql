@@ -28,4 +28,4 @@ prompt >> creating staging directory
 !mkdir /home/oracle/fludb_staging
 create or replace directory fludb_directory as '/home/oracle/fludb_staging';
 grant all on directory fludb_directory to fludb;
-
+quit
