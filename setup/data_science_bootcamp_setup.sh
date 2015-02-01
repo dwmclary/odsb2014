@@ -44,8 +44,8 @@ sudo -E pip install pyzmq jinja2 tornado ipython-sql
 #set up the pyspark profile
 echo "installing pyspark profile for ipython"
 ipython profile create pyspark
-cp ipython_notebook_config_spark.py ~/.config/ipython/profile_pyspark/ipython_notebook_config.py
-cp 00-pyspark-setup.py ~/.config/ipython/profile_pyspark/startup/00-pyspark-setup.py
+cp ipython_notebook_config_spark.py $HOME/.config/ipython/profile_pyspark/ipython_notebook_config.py
+cp 00-pyspark-setup.py $HOME/.config/ipython/profile_pyspark/startup/
 echo "installing SBT"
 #install sbt
 wget -O sbt-0.13.7.rpm https://dl.bintray.com/sbt/rpm/sbt-0.13.7.rpm
