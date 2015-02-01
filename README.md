@@ -16,5 +16,6 @@ Getting Started
 * Run the data download script `./download_data.sh`
 * Run the pyspark installation script `./setup_pyspark_notebook.sh`
 * Run the database setup script `sqlplus sys/welcome1 as sysdba @fludb.sql`
+* Start the database listener `lsnrctl start`
 * Source ~/.bashrc or open a new terminal window
 * Change to the `odsb2014/notebooks` directory and start ipython: `ipython notebook --profile pyspark`
