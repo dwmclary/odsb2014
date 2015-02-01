@@ -65,5 +65,5 @@ cd ../flu_news
 ./get_news_data.sh
 cd ../setup
 #run the database setup script
-sqlplus sys/welcome1 as sysdba @fludb.sql
+sqlplus sys/welcome1 as sysdba @./fludb.sql
 #finished
