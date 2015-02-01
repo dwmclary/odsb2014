@@ -19,3 +19,10 @@ Getting Started
 * Start the database listener `lsnrctl start`
 * Source ~/.bashrc or open a new terminal window
 * Change to the `odsb2014/notebooks` directory and start ipython: `ipython notebook --profile pyspark`
+
+Loading Data
+----------------
+The `flu_statitics` and `flu_news` directories contain data download scripts that must be run
+in order to complete the workshop.  These can be run standalone, or by running `setup/download_data.sh`.
+The `flu_shots` directory contains a script for fetching data from the US Dept. HHS, but collection
+of this data is included as part of the series of notebooks.

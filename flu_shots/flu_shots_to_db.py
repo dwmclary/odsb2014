@@ -42,6 +42,23 @@ def main():
     print "writing to DB..."
     write_to_db(db, data)
 
+    view_ddl = """CREATE OR REPLACE VIEW FLUSHOTS
+      AS SELECT
+      CAST(j.doc.count AS NUMBER) eligible,
+      CAST(j.doc.week AS NUMBER) week,
+      CAST(j.doc.name AS VARCHAR2(20)) state_name,
+      CAST(j.doc.short_name AS VARCHAR2(2)) state,
+      CAST(j.doc.fips_id\tAS NUMBER) fips_id,
+      CAST(j.doc.disparity as VARCHAR2(20)) disparity,
+      CAST(j.doc.medicare_status as VARCHAR2(20)) medicare_status,
+      CAST(j.doc.year as NUMBER) year,
+      CAST(j.doc.percentage AS NUMBER) percentage_claimed,
+      CAST(j.doc.ethnicity AS VARCHAR2(20)) ethnicity
+      FROM flu_shot_json j"""
+      cursor = db.cursor()
+      cursor.execute(view_ddl)
+      cursor.close()
+
 
 if __name__ == "__main__":
   main()
