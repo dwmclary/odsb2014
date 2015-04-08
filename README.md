@@ -8,7 +8,7 @@ A series of workshops to explain both basic and advanced data science concepts u
 Getting Started
 ----------------
 
-* Download the [Oracle Big Data Lite VM](www.oracle.com/technetwork/database/bigdata-appliance/oracle-bigdatalite-2104726.html)
+* Download the Oracle Big Data Lite VM at http://www.oracle.com/technetwork/database/bigdata-appliance/oracle-bigdatalite-2104726.html
     This requires Virtual Box.  All username/passwords for the VM are `oracle/welcome1` unless stated otherwise.
 * Clone this git repository: `git clone https://github.com/dwmclary/odsb2014`
 * Change into the setup directory: `cd odsb2014/setup`
