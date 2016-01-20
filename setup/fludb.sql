@@ -1,5 +1,6 @@
 prompt >> Starting up
 startup
+alter session set "_ORACLE_SCRIPT"=true;
 prompt >> Dropping fludb user
 drop user fludb cascade;
 prompt >> Creating fludb...
